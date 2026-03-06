@@ -5,8 +5,10 @@
 ```
 mkdir <project_folder_name>
 ``` 
+
 ```
 cd <project_folder_name>
+```
 
 ```
 code .
