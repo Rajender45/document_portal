@@ -8,7 +8,7 @@ mkdir <project_folder_name>
 ```
 cd <project_folder_name>
 
-'''
+```
 code .
 ```
 
@@ -38,7 +38,7 @@ git add .
 
 ```
 git commit -m "write your commit message"
-'''
+```
 
 ```
 git push
