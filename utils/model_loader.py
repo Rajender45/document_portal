@@ -105,11 +105,17 @@ if __name__ == "__main__":
     embeddings = loader.load_embeddings()
     print(f"Embeddings loaded: {embeddings}")
 
+    result = embeddings.embed_query("Hello world")
+    print(f"Embedding Result: {result}")    
+
     llm = loader.load_llm()
     print(f"LLM Loaded: {llm}")
 
     result = llm.invoke("Hello, how are you?")
-    print(f"LLM Result: {result.content}")       
+    print(f"LLM Result: {result.content}")   
+
+    
+        
             
 
 
