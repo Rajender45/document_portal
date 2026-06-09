@@ -4,7 +4,7 @@ from pathlib import Path
 from src.document_analyzer.data_ingestion import DocumnetHandler
 from src.document_analyzer.data_analyser import DocumentAnalyzer
 
-PDF_PATH = r"D:\LLMOps\document_portal\data\document_analysis\sample.pdf"
+PDF_PATH = r"D:\LLMOps\document_portal\data\document_analysis\Resume.pdf"
 
 
 class DummyFile:
