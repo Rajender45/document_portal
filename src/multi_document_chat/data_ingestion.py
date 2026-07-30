@@ -75,7 +75,7 @@ class DocumentIngestor:
             if not documents:
                 raise DocumentPortalException("No valid documents were loaded", sys)
             
-            self.log.info("All documents loaded", total_docs = len(documenst), session_id = self.session_id)
+            self.log.info("All documents loaded", total_docs = len(documents), session_id = self.session_id)
             return self._create_retriever(documents)
         
 
