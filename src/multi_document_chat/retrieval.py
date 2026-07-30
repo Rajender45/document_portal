@@ -11,6 +11,8 @@ from exception.custom_exception import DocumentPortalException
 from logger.custom_logger import CustomLogger
 from prompt.prompt_library import PROMPT_REGISTRY
 from model.models import PromptType
+from langchain_core.runnables import RunnableLambda
+from langchain_core.prompts import ChatPromptTemplate
 
 class ConversationalRAG:
     def __init__(self, session_id: str, retriever=None):
@@ -76,7 +78,7 @@ class ConversationalRAG:
                           answer_preview = answer[:150],
                           )
             return answer
-        
+            
         except Exception as e:
             self.log.error("Failed to invoke ConversationalRAG", error=str(e))
             raise DocumentPortalException("Invocation error in ConversationalRAG", sys)
@@ -106,7 +108,8 @@ class ConversationalRAG:
                 | StrOutputParser() 
             )
 
-            retriever_docs = question_rewriter | self._format_docs
+            # retriever_docs = question_rewriter | self.retriever  | RunnableLambda(self._format_docs)
+            retriever_docs = (itemgetter("input")| self.retriever| RunnableLambda(self._format_docs))
 
             self.chain = (
                 {
@@ -122,3 +125,6 @@ class ConversationalRAG:
         except Exception as e:
             self.log.error("Failed to build LCEL chain", error=str(e))
             raise DocumentPortalException("LCEL chain building error in ConversationalRAG", sys)
+
+
+    

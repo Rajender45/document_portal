@@ -34,7 +34,7 @@ class DocumentIngestor:
                           faiss_base = str(self.faiss_dir),
                           session_id = self.session_id,
                           temp_path = str(self.session_temp_dir),
-                          faiss_path = str(self.session_faiss),
+                          faiss_path = str(self.session_faiss_dir),
             )
 
 
